@@ -1,0 +1,15 @@
+<div>
+    {{#with main}}
+        <main>
+            <section>
+                {{> title data='My education'}}
+                <ul>
+                    {{#each educations}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </section>
+    
+        </main>
+    {{/with}}
+</div>
