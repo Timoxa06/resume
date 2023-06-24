@@ -4,7 +4,36 @@ const express = require('express')
 const router = express.Router()
 
 // ================================================================
+var header = {
+  name: {
+    firstname:'Ivan',
+    lastname:'Ivanov'
+  },
 
+  position: 'Junior Fullstack JS Developer',
+
+  salary:'600$ в місяц',
+
+  address:'Anna Ahmatova 22',
+}
+
+var footer = {
+  social: {
+    email:{
+      text:'dmytro@mail.com',
+      href:'mailto:dmytro@mail.com',
+    },
+    phone:{
+      text:'+380670000123',
+      href:'tel:+380670000123',
+    },
+    linkedin:{
+      text:'LinkedIn',
+      href:'https://www.linkedin.com/in/dmytro-test',
+    },
+  },
+}
+// ================================================================
 // router.get Створює нам один ентпоїнт
 
 //           ↙ тут вводимо шлях (PATH) до сторінки
@@ -26,18 +55,7 @@ router.get('/summary', function (req, res) {
     page:{
       title: 'Resume',
     },
-    header:{
-      name: {
-        firstname:'Ivan',
-        lastname:'Ivanov'
-      },
-  
-      position: 'Junior Fullstack JS Developer',
-  
-      salary:'600$ в місяц',
-
-      address:'Anna Ahmatova 22',
-    },
+    header,
 
     
     main:{
@@ -49,7 +67,7 @@ router.get('/summary', function (req, res) {
       },
   
       experience:{
-          title:'Experience',
+        title:'Experience',
         text:`Pet project for parsing sport betting data from different platforms ( odds ) and sport statistics (
           tournament position, goals etc), analyzing by simple mathematics models and preparing probability
           for such events like: money line - first win / draw / second win, totals etc.`,
@@ -57,22 +75,8 @@ router.get('/summary', function (req, res) {
     },
     
 
-    footer:{
-      social: {
-        email:{
-          text:'dmytro@mail.com',
-          href:'mailto:dmytro@mail.com',
-        },
-        phone:{
-          text:'+380670000123',
-          href:'tel:+380670000123',
-        },
-        linkedin:{
-          text:'LinkedIn',
-          href:'https://www.linkedin.com/in/dmytro-test',
-        },
-      },
-    }
+    footer,
+  })
 })
 router.get('/skills', function (req, res) {
     //             ↙ cюди вводимо назву файлу з сontainer
@@ -82,46 +86,57 @@ router.get('/skills', function (req, res) {
       title: 'Resume',
     },
 
-    header:{
-      name: {
-        firstname:'Ivan',
-        lastname:'Ivanov'
-      },
-  
-      position: 'Junior Fullstack JS Developer',
-  
-      salary:'600$ в місяц',
-
-      address:'Anna Ahmatova 22',
-    },
+    header,
 
     main: {
       skills: [
-        'HTML',
-        'Handlebars',
-        'VS Code',
-        'GIT',
-        'Terminal',
-        'NPM',
+        {
+          name:'HTML',
+          point: 10,
+          isTop: 'top',
+        },
+        {
+          name:'Handlebars',
+          point: 7,
+        },
+        {
+          name:'VS Code',
+          point: 9,
+        },
+        {
+          name:'GIT',
+          point: 6,
+        },
+        {
+          name:'Terminal & NPM',
+          point: 8,
+        },
+        {
+          name:'PHP',
+          point: null,
+        },
+        {
+          name:'Java',
+          point: 0,
+        },
       ],
+      hobbies:[
+        {
+          name:'Football',
+          IsMain:true,
+        },
+        {
+          name:'Singing',
+          IsMain:true,
+        },
+        {
+          name:'Basketball',
+          IsMain:false,
+        }
+      ]
     }, 
 
-    footer:{
-      social: {
-        email:{
-          text:'dmytro@mail.com',
-          href:'mailto:dmytro@mail.com',
-        },
-        phone:{
-          text:'+380670000123',
-          href:'tel:+380670000123',
-        },
-        linkedin:{
-          text:'LinkedIn',
-          href:'https://www.linkedin.com/in/dmytro-test',
-        },
-      },
-    }
+    footer,
   })
 })
 router.get('/education', function (req, res) {
@@ -132,18 +147,7 @@ res.render('education', {
     title: 'Resume',
   },
 
-  header:{
-    name: {
-      firstname:'Ivan',
-      lastname:'Ivanov'
-    },
-
-    position: 'Junior Fullstack JS Developer',
-
-    salary:'600$ в місяц',
-
-    address:'Anna Ahmatova 22'
-  },
+  header,
 
   main:{
     educations:[
@@ -151,24 +155,89 @@ res.render('education', {
       'hhbfbfd',
       'Gambridg',
     ],
+    certificates:[
+      {
+        name:'JS PRO',
+        id: 92836,
+      },
+      {
+        name:'IT BRAINS',
+        id: 98432,
+      },
+      {
+        name:'HTML/CSS PRO',
+        id: 56776,
+      }
+    ],
   },
 
-  footer:{
-    social: {
-      email:{
-        text:'dmytro@mail.com',
-        href:'mailto:dmytro@mail.com',
+  footer,
+})
+})
+
+router.get('/work', function (req, res) {
+  //             ↙ cюди вводимо назву файлу з сontainer
+res.render('work', {
+  // ↙ сюди вводимо JSON дані
+  
+  layout: 'big',
+
+  page:{
+    title: 'Resume | Work',
+  },
+
+  
+
+  header,
+
+  main:{
+    works:[
+      {
+        position:'Junior Fullstack Developer',
+        company:{
+          name:'It Brains',
+          url:'https://it-brains.com.ua/'
+        },
+        duration:{
+          from:'10.10.2022',
+          to:null
+        },
+        projectAmount:'3',
+        
+        projects:[
+          {
+            
+            name:'Resume',
+            url:'https://resume.com.ua/',
+            about:'Airbnb competitor. High-load application for searching apartments',
+          },
+        ],
+        stacks:[
+          {
+            name:'Rect.js',
+          },
+          {
+            name:'HTML/CSS',
+          },
+          {
+            name:'Node.js',
+          },
+        ],
+        awards:[
+          {
+            name:'dfghnbvc',
+          },
+          {
+            name:'fghjnbvcxcvbn',
+          }
+        ],
+        staksAmount:'3',
+        awardsAmount:'2',
       },
-      phone:{
-        text:'+380670000123',
-        href:'tel:+380670000123',
-      },
-      linkedin:{
-        text:'LinkedIn',
-        href:'https://www.linkedin.com/in/dmytro-test',
-      },
-    },
-  }
+    ],
+  },
+
+  footer,
 })
 })
 module.exports = router

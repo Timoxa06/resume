@@ -9,12 +9,41 @@
     {{#with main}}
         <main>
             <section>
-                {{> title data='All skills'}}
+                {{> title data='All skills' big=true}}
                 <ul>
                     {{#each skills}}
-                    <li>{{this}}</li>
+                    <li>{{name}} 
+
+                        {{#if point includeZero=true}} ({{point}}) {{/if}}
+                        {{#if isTop}} (TOP) {{/if}}
+
+                        {{#unless point includeZero=true}} (не вивчаємо) {{/unless}}
+
+                        {{#unless point}}
+                            {{#if point includeZero=true}}
+                            (зараз вивчаємо)
+                            {{/if}}
+                        {{/unless}}
+
+                    </li> 
                     {{/each}}
                 </ul>
+            </section>
+                {{> title data='My hobbies'}}
+                <ol>
+                    {{#each hobbies}}
+                    <li>
+                        {{#if IsMain includeIsMain='true'}}
+                        {{name}} (favourite)
+                        {{/if}}
+                        {{#unless IsMain includeIsMain='false' }}
+                        {{name}}
+                        {{/unless}}
+                    </li> 
+                    {{/each}}
+                </ol>
+            <section>
+
             </section>
     
         </main>
