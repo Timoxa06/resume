@@ -1,0 +1,104 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+
+
+    <main>
+        <section>
+            
+            {{> title data='Js'}}
+             
+              
+            <div>
+                <br>
+                <h3>{{name}}</h3>
+                <em>
+                    Description:{{description}}<br>
+                    {{#with history}}
+                    {{founder}}:{{year}}
+                    {{/with}}
+                </em>
+                <br>
+            </div>
+
+            <div>
+                <br>
+                <h3>Types</h3>
+                <em>
+                    Types:{{types}}
+                </em>
+                <hr>
+            </div>
+                {{#with syntax}}
+                    <div>
+                        <br>
+                        <h3>Syntax</h3>
+                        <em>
+                            Variables:{{variables}} <br>
+                            Functions:{{functions}} <br>
+                            Conditionals:{{conditionals}} <br>
+                            Loops:{{loops}} <br>
+                            Classes:{{classes}} <br>
+                        </em>
+                        <hr>
+                    </div>
+                {{/with}}
+
+                    <div>
+                        <br>
+                        <h3>Features</h3>
+                        <em>
+                            Features:{{features}}
+                            
+                        </em>
+                        <hr>
+                    </div>  
+                    
+                    <div>
+                        <br>
+                        <h3>Libraries</h3>
+                        <em>
+                            Libraries:{{libraries}}
+                            
+                        </em>
+                        <hr>
+                    </div>
+
+                    <div>
+                        <br>
+                        <h3>Tools</h3>
+                        <em>
+                            Tools:{{tools}}
+                            
+                        </em>
+                        <hr>
+                    </div>
+
+                    <div>
+                        <br>
+                        <h3>Community</h3>
+                        {{#each community}}
+                            <ul>
+                                <li>
+                                
+                                    {{name}}({{type}})
+                                    
+                                </li>  
+                            </ul>
+                        {{/each}}
+                        <hr>
+                    </div>
+            
+            <br>
+
+        </section>
+    </main>
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
