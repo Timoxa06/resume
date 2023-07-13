@@ -1,0 +1,139 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+
+
+    <main>
+        <section>
+            
+            {{> title data='Mac'}}
+             
+              
+            <div>
+                <br>
+                <h4>Mac</h4>
+                <em>
+                    <h5>{{name}}</h5> 
+                    Description:{{description}}<br>
+                    Price: {{price}}$<br>
+                    Category:{{category}}                    
+                    <hr>
+                    {{#with features}}
+
+                            {{#with processor}}
+
+                                <h5>Processor</h5>
+                                Brand: {{brand}} <br>
+                                Model: {{model}} <br>
+                                Speed: {{speed}} <br>
+                                Cores: {{cores}} <br>
+                                Cache: {{cache}}
+                                
+                            {{/with}}
+                            <hr>
+
+                            {{#with memory}}
+
+                                <h5>Memory</h5>
+                                Type: {{type}} <br>
+                                Size: {{size}} <br>
+                                Speed: {{speed}}
+                                
+                            {{/with}}
+                            <hr>
+
+                            {{#with storage}}
+
+                                <h5>Storage</h5>
+                                Type: {{type}} <br>
+                                Size: {{size}}
+                                
+                            {{/with}}
+                            <hr>
+
+                            {{#with display}}
+
+                                <h5>Display</h5>
+                                Size: {{size}} <br>
+                                Resolution: {{resolution}} <br>
+                                Technology: {{technology}} <br>
+                                Color space: {{color_space}} <br>
+                                Brightness: {{brightness}} <br>
+                                Refresh_rate: {{refresh_rate}} <br>
+                                
+                            {{/with}}
+                            <hr>
+
+                            {{#with graphics}}
+
+                                <h5>Graphics</h5>
+                                Brand: {{brand}} <br>
+                                Model: {{model}} <br>
+                                Memory: {{memory}} <br>
+                                
+                            {{/with}}
+                            <hr>
+                            <h5>Ports</h5>
+                            {{#each ports}}
+
+                                
+                                Type: {{type}} <br>
+                                Count: {{count}} <br>
+                                {{#if features includeFeatures=true}}
+                                Features: {{features}}
+                                {{/if}}
+                                {{#unless features includeFeatures=none}}
+                                Features: no info
+                                {{/unless}}
+                                
+                                
+                                <hr>
+                                
+                                
+                                
+                            {{/each}}
+
+                            {{#with battery}}
+
+                                <h5>Battery</h5>
+                                Type: {{type}} <br>
+                                Capacity: {{capacity}} <br>
+                                Life: {{life}} <br>
+                                
+                            {{/with}}
+                            Weight: {{weight}}
+                            <hr>
+
+                            {{#with dimensions}}
+
+                                <h5>Dimensions</h5>
+                                Height: {{height}} <br>
+                                Width: {{width}} <br>
+                                Depth: {{depth}} <br>
+                                
+                            {{/with}}
+                            Operating system: {{operating_system}}
+                            <hr>
+                            <h5>Accessories</h5>
+                            {{#each accessories}}
+
+                                
+                                <ul>
+                                    <li>{{name}}: {{price}}$</li>
+                                </ul>
+                                
+                            {{/each}}
+
+                    {{/with}}
+
+                </em>
+                <br>
+            </div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
