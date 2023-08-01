@@ -1,0 +1,223 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+{{!-- <div class="card">
+    <img class="card-img-top" src="https://picsum.photos/400/200" alt="Image cap">
+    <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p></p>
+        <a class="btn btn-"></a>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="card text-bg-">
+    <div class="card-header text-"></div>
+    <div class="card-body text-">
+        <h6 class="card-title"></h6>
+        <div></div>
+    </div>
+    <div class="card-footer text-"></div>
+</div> 
+
+<div class="row g-">
+    <div class="col-"></div>
+
+</div>
+
+
+--}}
+
+
+
+<main>
+    {{#with navigation}}
+    
+    <div class="card">
+        
+        <div class="nav">
+            {{#each links}}
+                <div class="nav-item">
+                    <a href="{{href}}" class="nav-link ps-3">{{text}}</a>
+                </div>
+            {{/each}}
+            <a href="{{href}}" class="nav-link ps-3 disabled">Disabled</a>
+        </div>
+        
+       
+    </div>
+    
+    {{/with}}
+    
+    <br>
+    <br>
+
+    {{#with header}}
+        <h1>{{title}}</h1>
+        {{#with button}}
+            <a href="{{link}}" type="button" class="btn btn-outline-secondary">{{text}}</a>
+        {{/with}}
+    {{/with}}
+
+    <br>
+    <br>
+    <hr>
+    <br>
+    <div class="row g-3">
+        {{#each goodsBlock}}
+            <div class="col-2">
+                <img class="card-img-top" src="{{image}}">
+            </div>
+            <div class="col-2">
+                <h6 class="card-title">{{name}}</h6>
+            </div>
+            <div class="col-2">
+                <div>{{description}}</div>
+            </div>
+            <div class="col-2">
+                <div>{{price}}</div>
+            </div>
+            <div class="col-2">
+                <div>{{amount}}</div>
+            </div>
+            <div class="col-2">
+                {{#each buttons}}
+                    <div>
+                        <button type="button" class="btn {{#if isPrimary}} btn-primary {{/if}} {{#if isDanger}} btn-outline-danger {{/if}}">{{text}}</button>
+                    </div>
+                {{/each}}
+            </div>
+            
+        {{/each}}
+    </div>
+    <br>
+    <hr>
+    <br>
+
+    <div class="row ge-2">
+    {{#each footer}}
+        <div class="col-2">
+            {{#each this}}
+                <div class="nav flex-column pt-2">
+                    
+                    <div class="nav-item">
+                        <a href="{{link}}" class="nav-link">{{text}}</a>
+                    </div>
+                    
+                </div>
+            
+            {{/each}}
+        </div>
+    {{/each}}
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    {{#with total}}
+        <h3>{{title}}</h3>
+        <div class="display-5">{{amount}}</div>
+        <p>{{delivery}}</p>
+        {{#each buttons}}
+            <div class="pb-3">
+                <a href="{{link}}" type="button" class="btn {{#if isSuccess}} btn-success {{/if}} {{#if isOutline}} btn-outline-success {{/if}}">{{text}}</a>
+            </div>
+        {{/each}}
+    {{/with}}
+
+    <hr>
+    <br>
+
+    <div class="row g-3">
+        {{#with goodsOtherBlock}}
+            
+                {{#each cards}}
+                <div class="col-4">
+                    <img class="card-img-top" src="{{image}}">
+                    <div class="card-body">
+                        <h6 class="card-title">{{title}}
+                            {{#if isHot includeisHot=true}}
+                            <span class="badge text-bg-warning rounded-pill">hot</span>
+                            {{else}}
+                            <span></span>
+                            {{/if}}
+                        </h6>
+                        <div>{{description}}</div>
+                    </div>
+                </div>
+                {{/each}}
+            
+        {{/with}}
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    {{#with subscribe}}
+    <div class="row g-3">
+        <div class="col-12">
+            <div class="card text-bg-dark">
+                <div class="card-body">
+                    <h2 class="card-title">{{header}}</h2>
+                    <div>{{description}}</div>
+                    {{#each buttons}}
+                            <div class="flex-column pt-2">
+                                <div class="nav-item">
+                                    <a type="button" href="{{link}}" class="btn btn-primary ">{{text}}</a>
+                                </div>
+                            </div>  
+                        
+                    {{/each}}
+                </div>
+            </div> 
+        </div>
+    </div>
+    {{/with}}
+
+    <br>
+    <hr>
+    <br>
+
+    <div class="row ge-2">
+    {{#each footer}}
+        <div class="col-2">
+            {{#each this}}
+                <div class="nav flex-column pt-2">
+                    
+                    <div class="nav-item">
+                        <a href="{{link}}" class="nav-link">{{text}}</a>
+                    </div>
+                    
+                </div>
+            
+            {{/each}}
+        </div>
+    {{/each}}
+    </div>
+
+</main>
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
