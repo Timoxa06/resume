@@ -1,7 +1,10 @@
+<div class="row g-3">
 <div class="card">
-    {{#each reviewlist}}
-        
+    
+    {{#each reviewList}}
+        <br>
             <div class="card">
+                
                 {{#with title}}
                     <div class="card-body">
                         
@@ -10,49 +13,63 @@
                             <p>{{date}}</p>
                         
                     </div>
+                    
                 {{/with}}
             </div>
             
-            {{#with reviewBody}}
-                <div class="card">
-                    <div class="card-body">
-                        {{#with seler}}
-                            <p>{{title}}</p>
-                            <p>{{value}}</p>
-                        {{/with}}
-                        {{#with rating}}
-                            <p>{{title}}:{{value}}</p>
-                        {{/with}}
-                        {{#each text}}
-                        <p>{{this}}</p>
-                        {{/each}}
-                        {{#with advantages}}
-                        <p><b>{{title}}:</b></p>
-                        <p>{{text}}</p>
-                        {{/with}}
-                        {{#with disadvantages}}
-                        <p><b>{{title}}:</b></p>
-                        <p>{{text}}</p>
-                        {{/with}}
-                        {{#with images}}
-                        <img src={{this}} class="card-img-top">
-                        {{/with}}
-                    </div>
-                </div>
-                    
             
+                {{#with reviewBody}}
                 
-            
+                    <div class="card p-3">
+                        <div class="card-body">
+                            {{#with seler}}
+                                <p>{{title}}</p>
+                                <p>{{value}}</p>
+                            {{/with}}
+                            {{#with rating}}
+                                <p>{{title}}:{{value}}</p>
+                            {{/with}}
+                            {{#each text}}
+                            <p>{{this}}</p>
+                            {{/each}}
+                            {{#with advantages}}
+                            <p><b>{{title}}:</b></p>
+                            <p>{{text}}</p>
+                            {{/with}}
+                            {{#with disadvantages}}
+                            <p><b>{{title}}:</b></p>
+                            <p>{{text}}</p>
+                            {{/with}}
+
+                            
+                            <div class="row">
+                                {{#each images}}
+                                    <div class="col-2"><img src={{this}} class=" card-img-top"></div>
+                                {{/each}}
+                            </div>
+                            
+                        </div>
+                    </div>
+                
+                    
+
+                
+                {{#each coments}}
+                <br>
                 <div class="card">
                     <div class="card-body">
-                        {{#each coments}}
+
                             <h3>{{userName}}</h3>
                             <p>{{date}}</p>
                             <p>{{text}}</p>
-                        {{/each}}
+                        
                     </div>
                 </div>
+                <br>
+                {{/each}}
+                
             {{/with}}
         
     {{/each}}
+</div>
 </div>

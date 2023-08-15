@@ -192,6 +192,30 @@
     <hr>
     <br>
 
+    {{#with service}}
+    <div class="row g-3">
+        <div class="col-12">
+            <div class="card text-bg-success">
+                <div class="card-body text-center">
+                    <h2 class="card-title ">{{title}}</h2>
+                    <div>{{description}}</div>
+                    {{#each buttons}}
+                            <div class="flex-column pt-2">
+                                <div class="nav-item">
+                                    <a type="button" href="{{link}}" class="btn btn-primary ">{{text}}</a>
+                                </div>
+                            </div>   
+                    {{/each}}
+                </div>
+            </div> 
+        </div>
+    </div>
+    {{/with}}
+
+    <br>
+    <hr>
+    <br>
+
     <div class="row ge-2">
     {{#each footer}}
         <div class="col-2">
