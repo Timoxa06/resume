@@ -1,0 +1,216 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+{{!-- <div class="card">
+    <img class="card-img-top" src="https://picsum.photos/400/200" alt="Image cap">
+    <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p></p>
+        <a class="btn btn-"></a>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="card text-bg-">
+    <div class="card-header text-"></div>
+    <div class="card-body text-">
+        <h6 class="card-title"></h6>
+        <div></div>
+    </div>
+    <div class="card-footer text-"></div>
+</div> 
+
+<div class="row g-">
+    <div class="col-"></div>
+
+</div>
+
+
+--}}
+
+
+
+<main>
+    <div class="row g-2">
+    {{#with navigation}}
+
+    <div class="card col-12">
+            
+        <div class="nav">
+            {{#each links}}
+                <div class="nav-item">
+                    <a href="{{href}}" class="nav-link ps-3">{{text}}</a>
+                </div>
+            {{/each}}
+            <a href="{{href}}" class="nav-link ps-3 disabled">Disabled</a>
+        </div>
+    </div>
+
+    <div class="col-8">
+        
+        
+       
+    
+
+    {{/with}}
+    
+    <br>
+    <br>
+
+    
+    {{#with formBlock}}
+    
+        <h1 class="">{{header}}</h1>
+        
+            
+        
+        
+
+        {{#with rating}}
+            <p class="">{{title}}:{{value}}</p>
+        {{/with}}
+
+        
+        
+        
+
+        {{#with actionBlock}}
+            <div class="row g-4">
+                
+                <div class="">
+                    
+                    <div class="nav nav-tabs">
+                        {{#each tabs}}
+                        <div class="nav-item">
+                            
+                            <a href="url" class="nav-link text-primary {{#if isActive}} text-dark {{/if}}">{{text}}</a>
+                            
+                        </div>
+                        {{/each}}
+                    </div>
+
+                </div>
+            </div>
+
+            <br>
+            <hr>
+            <br>
+
+            {{#with report}}
+                <div class="card ">
+                    <div class="card-body">
+                        <p>{{title}}</p>
+                        {{#with button}}
+                            <button type="button" class="btn btn-secondary">{{text}}</button>
+                        {{/with}}
+                    </div>
+                </div>
+            {{/with}}
+        {{/with}}
+
+        <br>
+        <hr>
+
+
+        {{#with feedbackBlock}}
+            <h2 >{{title}}</h2>
+            <br>
+            {{#each buttons}}
+                <button type="button" href="{{link}}" class="btn  {{#if isWarning}} btn-warning {{/if}} {{#if isSuccess}} btn-success {{/if}} {{#if isDanger}} btn-danger {{/if}}">{{text}}</button>
+            {{/each}}
+        {{/with}}
+
+        
+
+    </div>
+        <div class="col-4 ">
+            {{#with goodsInfo}}
+                <div class="card">
+                    <img class="card-img-top" src="{{photo}}">
+                    <div class="card-body">
+                        <p>{{name}}</p>
+                    </div>
+                </div> 
+
+                <br>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div>{{price}}</div>
+                        <p>{{name}}</p>
+                        {{#each buttons}}
+                            <button type="button" href="{{link}}" class="btn {{#if isPrimary}} btn-primary {{/if}} {{#if isSecondary}} btn-secondary {{/if}}">{{text}}</button>
+                        {{/each}}
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="card">
+                    <div class="card-body">
+                        {{#with seller}}
+                        <p>{{title}}:<b>{{value}}</b></p>
+                        {{/with}}
+                    </div>
+                </div>
+            {{/with}}
+        </div>
+
+        
+
+        
+
+    {{/with}}
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <div>{{> reviewItem}}</div>
+
+    <br>
+    <hr>
+    <br>
+
+    <div class="row ge-2">
+    {{#each footer}}
+        <div class="col-2">
+            {{#each this}}
+                <div class="nav flex-column pt-2">
+                    
+                    <div class="nav-item">
+                        <a href="{{link}}" class="nav-link">{{text}}</a>
+                    </div>
+                    
+                </div>
+            
+            {{/each}}
+        </div>
+    {{/each}}
+    </div>
+
+</main>
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
